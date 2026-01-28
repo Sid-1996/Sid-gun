@@ -1,3 +1,4 @@
+![GitHub downloads](https://img.shields.io/github/downloads/Sid-1996/Sid-gun/total?color=orange)
 # AHK 版本檢測示範 Repo
 
 這個倉庫用來展示 **AHK 工具如何自動檢測最新版本**，利用 GitHub Releases 作為版本來源。  
