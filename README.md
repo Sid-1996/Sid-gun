@@ -1,17 +1,22 @@
 ![GitHub downloads](https://img.shields.io/github/downloads/Sid-1996/Sid-gun/total?color=orange)
-# AHK 版本檢測示範 Repo
+![GitHub release](https://img.shields.io/github/v/release/Sid-1996/Sid-gun)
 
-這個倉庫用來展示 **AHK 工具如何自動檢測最新版本**，利用 GitHub Releases 作為版本來源。  
+# SAFPSG Recoil Control Script — 壓槍腳本
 
-> ⚠️ 注意：此 Repo **沒有實際程式碼**，僅作為概念示範。  
+適用於 FPS 遊戲的壓槍輔助腳本，使用 AutoHotkey v2 開發。
 
-## 用途
+> ⚠️ 此版本庫僅用於 **發佈 Release（執行檔下載）**。原始碼存放於私人版本庫。
 
-- 示範 AHK 工具版本自動檢測流程  
-- 利用 GitHub Releases 作為版本來源  
-- 放置壓縮檔供朋友下載更新  
-- 作為未來自動更新功能的基礎  
+---
 
-## 授權
+## 📥 下載
+
+請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載最新版本的執行檔。
+
+## 🔄 自動版本檢測
+
+發行套件內含 `VersionChecker.ahk` 版本檢測模組，啟動時自動透過本庫的 Releases API 檢查是否有新版本。
+
+## 📄 授權
 
 MIT License

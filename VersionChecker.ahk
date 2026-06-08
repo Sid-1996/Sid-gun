@@ -12,8 +12,7 @@
 ; - 引導使用者前往下載頁面
 ;
 ; 🔗 相關連結
-;   GitHub：https://github.com/Sid-1996/Sid-gun
-;   原始碼：https://github.com/Sid-1996/Sid-gun/releases
+;   Release 下載頁面：https://github.com/Sid-1996/Sid-gun/releases
 ;
 ; 🚀 快速使用
 ;   result := CheckForUpdates("v1.0.0", "Sid-1996", "Sid-gun")
