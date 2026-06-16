@@ -1,5 +1,5 @@
 {
-  "latest_version": "v1.0.1.2",
+  "latest_version": "v1.0.1.3",
   "release_notes": "• 修復：INI 設定檔路徑問題，EXE 現在會自動在所在目錄建立 config 資料夾\n• 授權系統升級：採用雲端驗證，舊版 v1.0.0 用戶請聯繫 Sid 免費領取新授權\n• F1 開關設定面板：遊戲中隨時隱藏/顯示\n• 壓槍步進選擇：支援 0.1 / 0.5 / 1.0 步進\n• 自動保存：所有調整即時寫入，不再需要手動按保存\n• 目標視窗鎖定：可指定只在特定遊戲視窗啟用壓槍\n• 非同步版本檢查：不再卡 GUI\n• 多項錯誤修復與穩定性提升",
   "published_at": "2026-06-16",
   "download_url": "https://github.com/Sid-1996/Sid-gun/releases/latest",
