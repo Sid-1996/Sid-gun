@@ -1,5 +1,5 @@
-![GitHub downloads](https://img.shields.io/github/downloads/Sid-1996/Sid-gun/total?color=orange)
-![GitHub release](https://img.shields.io/github/v/release/Sid-1996/Sid-gun)
+![Version](https://img.shields.io/badge/version-v1.1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 # SAFPSG Recoil Control Script — 壓槍腳本
 
