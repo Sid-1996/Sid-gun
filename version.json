@@ -1,0 +1,7 @@
+{
+  "latest_version": "v1.0.1",
+  "release_notes": "• 新增 F1 開關設定面板\n• 新增壓槍步進下拉選單 (0.1/0.5/1.0)\n• 非同步版本檢查，不再卡 GUI\n• 最小值改為 0，支援大步進",
+  "published_at": "2026-06-16",
+  "download_url": "https://github.com/Sid-1996/Sid-gun/releases/latest",
+  "min_version_required": false
+}
