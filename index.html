@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SID 壓槍腳本 | SAFPSG Recoil Control</title>
+  <meta name="description" content="全 FPS 遊戲通用的壓槍腳本，支援 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，內建儲存記錄功能，適用於所有 FPS 射擊遊戲。">
+  <meta name="keywords" content="壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,Valorant,CS2,PUBG,Apex,AHK">
+  <meta name="author" content="Sid">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sid-1996.github.io/Sid-gun/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sid-1996.github.io/Sid-gun/">
+  <meta property="og:title" content="SID 壓槍腳本 | SAFPSG Recoil Control">
+  <meta property="og:description" content="全 FPS 遊戲通用的壓槍腳本，支援 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，內建儲存記錄功能。">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="Sid-gun">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SID 壓槍腳本",
+    "alternateName": "SAFPSG Recoil Control",
+    "description": "全 FPS 遊戲通用的壓槍腳本，支援 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，內建儲存記錄功能。",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows 10/11",
+    "softwareVersion": "v1.1.1",
+    "keywords": "壓槍腳本,自動壓槍,FPS,Valorant,CS2,PUBG,Apex",
+    "author": { "@type": "Person", "name": "Sid" },
+    "offers": {
+      "@type": "Offer",
+      "price": "500",
+      "priceCurrency": "TWD"
+    },
+    "downloadUrl": "https://github.com/Sid-1996/Sid-gun/releases/latest"
+  }
+  </script>
+
+  <meta name="theme-color" content="#1a1a2e">
+
+  <style>
+    :root {
+      --bg-primary: #0f0f23;
+      --bg-secondary: #1a1a2e;
+      --bg-card: #16213e;
+      --accent: #e94560;
+      --accent-hover: #ff6b81;
+      --text-primary: #eaeaea;
+      --text-secondary: #a0a0b0;
+      --text-muted: #6c6c80;
+      --border: #2a2a4a;
+      --gradient: linear-gradient(135deg, #e94560, #0f3460);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 0;
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    nav .logo { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    nav ul li a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
+    nav ul li a:hover { color: var(--accent); }
+
+    .hero {
+      text-align: center; padding: 5rem 0 4rem;
+      background: var(--gradient); position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 80px);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: 1px; }
+    .hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto 2rem; }
+    .hero .subtitle {
+      display: inline-block; background: rgba(0,0,0,0.3);
+      padding: 0.4rem 1.2rem; border-radius: 20px;
+      font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem;
+    }
+    .hero .actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block; padding: 0.75rem 2rem; border-radius: 8px;
+      font-weight: 600; font-size: 1rem;
+      transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .btn-primary { background: #fff; color: var(--bg-primary); }
+    .btn-primary:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+
+    section { padding: 4rem 0; }
+    section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; text-align: center; }
+    section .section-desc { text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.05rem; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.8rem 1.5rem; transition: transform 0.2s, border-color 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .feature-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--text-secondary); font-size: 0.92rem; }
+
+    .download-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .card-item {
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem 1rem; border-radius: 12px; text-align: center; display: block;
+    }
+    .card-item h3 { color: #fff; margin: 0; font-size: 1rem; margin-bottom: 0.5rem; }
+    .card-item .badge { font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; }
+    .card-item p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.8rem; }
+    .sid-btn {
+      display: block; width: 100%; padding: 0.6rem 0; text-decoration: none; font-weight: bold;
+      border-radius: 4px; font-size: 0.85rem; text-align: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .sid-btn:hover { filter: brightness(1.15); transform: translateY(-2px); }
+    .sid-btn:active { transform: translateY(1px) scale(0.98); filter: brightness(0.9); }
+    .btn-donate {
+      animation: heartBeat 2s infinite;
+      background: linear-gradient(135deg, #ff4d4d 0%, #a32a2a 100%) !important;
+      color: #fff !important;
+    }
+    @keyframes heartBeat {
+      0% { box-shadow: 0 0 0 0 rgba(255,77,77,0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(255,77,77,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,77,77,0); }
+    }
+
+    .version-box {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-top: 2rem;
+    }
+    .version-box .label { color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px; }
+    .version-box .ver { color: var(--accent); font-size: 1.5rem; font-weight: 800; }
+    .version-box .notes { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.8; white-space: pre-line; }
+
+    .hotkey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; }
+    .hotkey-item {
+      display: flex; align-items: center; gap: 0.8rem;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.7rem 1rem;
+    }
+    .hotkey-item kbd {
+      display: inline-block; background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.2rem 0.6rem; font-family: inherit;
+      font-size: 0.85rem; font-weight: 600; color: var(--accent);
+      min-width: 2.2rem; text-align: center;
+    }
+    .hotkey-item span { font-size: 0.92rem; color: var(--text-secondary); }
+
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+      margin-bottom: 0.8rem; overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; background: none; border: none; color: var(--text-primary);
+      font-size: 1rem; font-weight: 600; padding: 1rem 1.2rem;
+      text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-family: inherit;
+    }
+    .faq-question::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
+    .faq-question[aria-expanded="true"]::after { content: '−'; }
+    .faq-answer { padding: 0 1.2rem 1rem; color: var(--text-secondary); font-size: 0.92rem; display: none; }
+    .faq-answer.open { display: block; }
+    .faq-answer a { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem 0;
+      text-align: center; color: var(--text-muted); font-size: 0.85rem;
+    }
+    footer .links { margin-bottom: 0.5rem; }
+    footer .links a { margin: 0 0.5rem; font-size: 0.9rem; }
+
+    @media (max-width: 900px) { .download-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      nav ul { gap: 0.8rem; }
+      nav ul li a { font-size: 0.8rem; }
+      .download-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">SID <span>壓槍腳本</span></a>
+      <ul>
+        <li><a href="#features">功能</a></li>
+        <li><a href="#download">下載</a></li>
+        <li><a href="#hotkeys">熱鍵</a></li>
+        <li><a href="#faq">常見問題</a></li>
+        <li><a href="https://sid-1996.github.io/sid-automation-lab/sidpayfor.html" target="_blank">購買授權</a></li>
+        <li><a href="https://github.com/Sid-1996/Sid-gun" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="subtitle">全 FPS 遊戲通用 &middot; AutoHotkey v2 &middot; <span id="hero-version">v1.1.1</span></div>
+      <h1>SID 壓槍腳本</h1>
+      <p>一套腳本適用所有 FPS 射擊遊戲。自訂 9 種槍械壓槍數據，即時微調力道與間隔，支援各類鍵盤排佈。</p>
+      <div class="actions">
+        <a href="#download" class="btn btn-primary">下載正式版</a>
+        <a href="https://sid-1996.github.io/sid-automation-lab/sidpayfor.html" target="_blank" class="btn btn-outline">購買授權</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2>核心功能</h2>
+      <p class="section-desc">專為 FPS 射擊遊戲設計的壓槍補償工具，操作簡單直覺、一目瞭然、上手即用。</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon">🎯</div>
+          <h3>全 FPS 通用</h3>
+          <p>一套腳本適用所有 FPS 射擊遊戲，無需針對個別遊戲調整，即開即用。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📦</div>
+          <h3>9 槽槍械預設</h3>
+          <p>獨立儲存 9 組槍械的壓槍力道與間隔，支援命名辨識，快速存/載。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <h3>即時微調</h3>
+          <p>遊戲中可直接用熱鍵調整壓槍力度與間隔，不需跳出視窗，立即感受差異。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎨</div>
+          <h3>準星覆蓋</h3>
+          <p>內建螢幕十字準星，支援切換顯示/隱藏與顏色變換，多螢幕正常顯示。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎮</div>
+          <h3>目標視窗鎖定</h3>
+          <p>指定遊戲程序後，腳本只對該遊戲生效，避免誤觸其他視窗，安全可靠。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔄</div>
+          <h3>自動更新檢查</h3>
+          <p>啟動時自動比對最新版本，有新版本立即通知，保持腳本始終最新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="container">
+      <h2>下載</h2>
+      <p class="section-desc">正式版為付費軟體，測試版可先行試用確認相容性。</p>
+
+      <div class="download-grid">
+        <div class="card-item" style="border-color: rgba(233, 192, 142, 0.2);">
+          <div class="badge" style="color: #e9c08e;">PREMIUM</div>
+          <h3>正式版</h3>
+          <p>永久授權・完整功能・500 TWD</p>
+          <a href="https://github.com/Sid-1996/Sid-gun/releases" target="_blank" class="sid-btn" style="background: #e9c08e; color: #000;">GitHub 下載</a>
+        </div>
+
+        <div class="card-item" style="border-color: rgba(0, 242, 255, 0.2);">
+          <div class="badge" style="color: #00f2ff;">BETA</div>
+          <h3>測試版</h3>
+          <p>功能預覽・免費試用・有限次數</p>
+          <a href="https://mega.nz/folder/BM8TSR7b#lVsAz3nYCZ2LTgP41n59vA" target="_blank" class="sid-btn" style="border: 1px solid #00f2ff; color: #00f2ff;">Mega 下載</a>
+        </div>
+
+        <div class="card-item">
+          <div class="badge" style="color: #666;">UTILITY</div>
+          <h3>序號查詢工具</h3>
+          <p>查詢本機硬體序號 (HWID)</p>
+          <a href="https://mega.nz/file/QQtkFbZa#Qx-nfdjuc4oxpBCg-4CltnDFOzskeuufz6nWYtmFVv4" target="_blank" class="sid-btn" style="background: #222; color: #888;">Mega 下載</a>
+        </div>
+
+        <div class="card-item" style="border-color: rgba(255, 77, 77, 0.2);">
+          <div class="badge" style="color: #ff4d4d;">LICENSE</div>
+          <h3>購買授權</h3>
+          <p>正式版授權・500 TWD 買斷</p>
+          <a href="https://sid-1996.github.io/sid-automation-lab/sidpayfor.html" target="_blank" class="sid-btn btn-donate">立即購買</a>
+        </div>
+      </div>
+
+      <div class="version-box" id="version-info">
+        <div class="label">VERSION LOGS</div>
+        <div class="ver" id="version-display">載入中...</div>
+        <div class="notes" id="release-notes"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hotkeys">
+    <div class="container">
+      <h2>熱鍵一覽</h2>
+      <p class="section-desc">所有熱鍵皆支援小鍵盤與短鍵盤兩種配置。</p>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+        <div class="hotkey-grid">
+          <div class="hotkey-item"><kbd>F1</kbd><span>顯示 / 隱藏設定面板</span></div>
+          <div class="hotkey-item"><kbd>F4</kbd><span>切換準星顯示</span></div>
+          <div class="hotkey-item"><kbd>F5</kbd><span>切換準星顏色</span></div>
+          <div class="hotkey-item"><kbd>Numpad+</kbd><span>增加壓槍力度</span></div>
+          <div class="hotkey-item"><kbd>Numpad-</kbd><span>減少壓槍力度</span></div>
+          <div class="hotkey-item"><kbd>Numpad*</kbd><span>增加壓槍間隔</span></div>
+          <div class="hotkey-item"><kbd>Numpad/</kbd><span>減少壓槍間隔</span></div>
+          <div class="hotkey-item"><kbd>Numpad1~9</kbd><span>保存槍械參數</span></div>
+          <div class="hotkey-item"><kbd>Numpad0&amp;N</kbd><span>載入槍械 N</span></div>
+          <div class="hotkey-item"><kbd>F11</kbd><span>重新載入腳本</span></div>
+          <div class="hotkey-item"><kbd>F12</kbd><span>結束腳本</span></div>
+          <div class="hotkey-item"><kbd>= / -</kbd><span>短鍵盤力度調整</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>常見問題</h2>
+      <p class="section-desc">初次使用前建議先閱讀，多數問題都能在這裡找到解答。</p>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">測試版跟正式版有什麼差別？</button>
+        <div class="faq-answer">
+          測試版為功能預覽版本，提供有限的免費試用次數（50 次），讓你在購買前確認腳本可在你的電腦正常運行。正式版則為永久授權，無使用次數限制，包含所有完整功能。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">如何購買正式版授權？</button>
+        <div class="faq-answer">
+          前往 <a href="https://sid-1996.github.io/sid-automation-lab/sidpayfor.html" target="_blank">授權購買頁面</a>，選擇 ECPay（台灣）或 PayPal（海外）付款。付款成功後，請私訊 <a href="https://www.facebook.com/talksometingshit/" target="_blank">Facebook 粉絲專頁</a> 提供付款名稱與腳本內的硬體序號 (HWID)，作者將在確認後回傳授權檔案。價格為 <strong>500 TWD 一次性買斷</strong>。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">授權可以轉移到其他電腦嗎？</button>
+        <div class="faq-answer">
+          授權鎖定單一硬體序號，不支援轉移至其他電腦。更換主機板或大幅改裝硬體將導致序號失效，需重新購買。若相同序號遺失授權，作者提供永久免費補發，請透過 FB 粉絲專頁或 Google 表單聯繫。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">下載的 ZIP 檔被 Windows 封鎖怎麼辦？</button>
+        <div class="faq-answer">
+          若下載被封鎖，請在檔案上按右鍵 → 內容 → 勾選「解除封鎖」。執行時若被 Windows Defender 阻擋，請點選「更多資訊」→「仍要執行」。這是因為執行檔未經數位簽章，屬於正常現象。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">需要安裝 AutoHotkey 才能使用嗎？</button>
+        <div class="faq-answer">
+          不需要。正式版與測試版皆為編譯好的執行檔 (EXE)，可直接執行，無需安裝 AutoHotkey 環境。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">如何回報問題或提出建議？</button>
+        <div class="faq-answer">
+          請透過 <a href="https://www.facebook.com/talksometingshit/" target="_blank">Facebook 粉絲專頁</a> 或填寫 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg/viewform" target="_blank">Google 表單</a> 聯繫作者。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="container">
+      <h2>贊助</h2>
+      <p class="section-desc">如果這個腳本對你有幫助，歡迎用你喜歡的方式支持我。</p>
+      <div style="text-align:center;">
+        <a href="https://ko-fi.com/K3K11KMXOL" target="_blank" style="display:inline-block;margin:0.3rem;"><img src="https://img.shields.io/badge/Ko--fi-FF5E5B?logo=kofi&logoColor=white&label=Support%20Sid" alt="Ko-fi"></a>
+        <a href="https://www.paypal.com/ncp/payment/GJS4D5VTSVWG4" target="_blank" style="display:inline-block;margin:0.3rem;"><img src="https://img.shields.io/badge/PayPal-00457C?logo=paypal&logoColor=white&label=Support%20Sid" alt="PayPal"></a>
+        <a href="https://p.ecpay.com.tw/E0E3A" target="_blank" style="display:inline-block;margin:0.3rem;"><img src="https://img.shields.io/badge/ECPay-8A2BE2?logo=amazonpay&logoColor=white&label=Support%20Sid" alt="ECPay"></a>
+        <a href="https://afdian.com/a/sid-1996" target="_blank" style="display:inline-block;margin:0.3rem;"><img src="https://img.shields.io/badge/愛發電-946CE6?logo=afdian&logoColor=white&label=Support%20Sid" alt="愛發電"></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="https://github.com/Sid-1996/Sid-gun" target="_blank">GitHub</a>
+        <a href="https://github.com/Sid-1996/Sid-gun/releases" target="_blank">Releases</a>
+        <a href="https://sid-1996.github.io/sid-automation-lab/" target="_blank">Sid Automation Lab</a>
+        <a href="https://sid-1996.github.io/sid-automation-lab/sidpayfor.html" target="_blank">購買授權</a>
+      </div>
+      <p>&copy; 2026 Sid &middot; Released under the MIT License</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.nextElementSibling.classList.toggle('open');
+      });
+    });
+
+    fetch('version.json').then(r => r.json()).then(data => {
+      document.getElementById('hero-version').textContent = data.latest_version;
+      document.getElementById('version-display').textContent = data.latest_version;
+      if (data.published_at) {
+        document.getElementById('version-display').textContent += ' (' + data.published_at + ')';
+      }
+      const notesEl = document.getElementById('release-notes');
+      if (data.release_notes) {
+        notesEl.textContent = data.release_notes;
+      }
+    }).catch(() => {
+      document.getElementById('version-display').textContent = 'v1.1.1';
+    });
+  </script>
+</body>
+</html>
