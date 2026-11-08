@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SID 壓槍腳本 - 全 FPS 遊戲通用壓槍補償工具 | 正式版 500 TWD 買斷</title>
   <meta name="description" content="全 FPS 遊戲通用壓槍腳本，9 槽槍械自訂壓槍數據、即時微調、準星覆蓋、目標視窗鎖定。支援 Valorant、CS2、PUBG、Apex 等射擊遊戲。500 TWD 買斷正式版。">
-  <meta name="keywords" content="壓槍腳本,壓槍工具,自動壓槍,FPS輔助,射擊遊戲輔助,Valorant壓槍,CS2壓槍,PUBG壓槍,Apex壓槍,反後座力,滑鼠控制,AHK腳本,槍械參數,電競輔助,遊戲輔助工具">
+  <meta name="keywords" content="壓槍腳本,壓槍工具,自動壓槍,FPS輔助,射擊遊戲輔助,Valorant壓槍,CS2壓槍,PUBG壓槍,Apex壓槍,反後座力,滑鼠控制,C# WPF,槍械參數,電競輔助,遊戲輔助工具">
   <meta name="author" content="Sid">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="4lWoqckzqXNbwUlyytkGLkFIFjTNKmb8Tr4jADOWXOY" />
@@ -33,8 +33,8 @@
     "description": "全 FPS 遊戲通用的壓槍腳本，支援 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，內建儲存記錄功能，適用於所有 FPS 射擊遊戲。",
     "applicationCategory": "GameApplication",
     "operatingSystem": "Windows 10/11",
-    "softwareVersion": "v1.1.1",
-    "keywords": "壓槍腳本,自動壓槍,自訂壓槍,FPS,Valorant,CS2,PUBG,Apex,AHK",
+    "softwareVersion": "v1.2.0",
+    "keywords": "壓槍腳本,自動壓槍,自訂壓槍,FPS,Valorant,CS2,PUBG,Apex,C#,WPF",
     "author": { "@type": "Person", "name": "Sid" },
     "offers": {
       "@type": "Offer",
@@ -45,7 +45,7 @@
     },
     "downloadUrl": "https://github.com/Sid-1996/Sid-gun/releases/latest",
     "installUrl": "https://sid-1996.github.io/Sid-gun/",
-    "screenshot": "https://opengraph.githubassets.com/1/sid-1996/sid-gun"
+    "screenshot": "https://sid-1996.github.io/Sid-gun/docs/screenshots/basic-dark.png"
   }
   </script>
   <script type="application/ld+json">
@@ -219,6 +219,27 @@
     footer .links { margin-bottom: 0.5rem; }
     footer .links a { margin: 0 0.5rem; font-size: 0.9rem; }
 
+    .slideshow { max-width: 880px; margin: 0 auto; }
+    .slideshow-frame { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .slideshow-frame img { display: block; width: 100%; height: auto; }
+    .slideshow-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+      background: rgba(15, 15, 35, 0.75); color: #fff; font-size: 1.3rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    }
+    .slideshow-nav:hover { background: var(--accent); }
+    .slideshow-prev { left: 1rem; }
+    .slideshow-next { right: 1rem; }
+    .slideshow-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .slideshow-caption { color: var(--text-secondary); font-size: 1rem; }
+    .slideshow-dots { display: flex; gap: 0.5rem; }
+    .slideshow-dot { width: 10px; height: 10px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
+    .slideshow-dot.active { background: var(--accent); }
+    .theme-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .theme-toggle button { background: transparent; border: none; color: var(--text-secondary); padding: 0.35rem 1.1rem; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
+    .theme-toggle button.active { background: var(--accent); color: #fff; }
+
     @media (max-width: 900px) { .download-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) {
       .hero h1 { font-size: 1.8rem; }
@@ -236,6 +257,7 @@
       <a href="#" class="logo">SID <span>壓槍腳本</span></a>
       <ul>
         <li><a href="#features">功能</a></li>
+        <li><a href="#screenshots">介面預覽</a></li>
         <li><a href="#download">下載</a></li>
         <li><a href="#hotkeys">熱鍵</a></li>
         <li><a href="#faq">常見問題</a></li>
@@ -247,7 +269,7 @@
 
   <section class="hero">
     <div class="container">
-      <div class="subtitle">全 FPS 遊戲通用 &middot; AutoHotkey v2 &middot; <span id="hero-version">v1.1.1</span></div>
+      <div class="subtitle">全 FPS 遊戲通用 &middot; C# WPF &middot; .NET 10 &middot; <span id="hero-version">v1.2.0</span></div>
       <h1>SID 壓槍腳本</h1>
       <p>一套腳本適用所有 FPS 射擊遊戲。自訂 9 種槍械壓槍數據，即時微調力道與間隔，支援各類鍵盤排佈。</p>
       <div class="actions">
@@ -291,6 +313,29 @@
           <div class="icon">🔄</div>
           <h3>自動更新檢查</h3>
           <p>啟動時自動比對最新版本，有新版本立即通知，保持腳本始終最新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenshots">
+    <div class="container">
+      <h2>介面預覽</h2>
+      <p class="section-desc">v1.2.0 全新 Fluent 介面：深色／淺色主題、五大分頁，實際執行畫面。</p>
+
+      <div class="slideshow" id="slideshow">
+        <div class="slideshow-frame">
+          <a href="#" id="slideshow-link"><img id="slideshow-img" src="docs/screenshots/basic-dark.png" alt="基本設定"></a>
+          <button class="slideshow-nav slideshow-prev" id="slideshow-prev" aria-label="上一頁">&lsaquo;</button>
+          <button class="slideshow-nav slideshow-next" id="slideshow-next" aria-label="下一頁">&rsaquo;</button>
+        </div>
+        <div class="slideshow-bar">
+          <span class="slideshow-caption" id="slideshow-caption">基本設定</span>
+          <div class="slideshow-dots" id="slideshow-dots"></div>
+          <div class="theme-toggle" role="group" aria-label="主題切換">
+            <button type="button" id="theme-dark" class="active">深色</button>
+            <button type="button" id="theme-light">淺色</button>
+          </div>
         </div>
       </div>
     </div>
@@ -396,9 +441,9 @@
       </div>
 
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">需要安裝 AutoHotkey 才能使用嗎？</button>
+        <button class="faq-question" aria-expanded="false">v1.2.0 需要安裝什麼環境才能執行？</button>
         <div class="faq-answer">
-          不需要。正式版與測試版皆為編譯好的執行檔 (EXE)，可直接執行，無需安裝 AutoHotkey 環境。
+          v1.2.0 為 C#（WPF）版本，需要 .NET 10 Desktop Runtime (x64)。首次執行若出現「You must install or update .NET」提示，點提示內的下載連結安裝後再執行一次即可；舊版 AHK 產生的 <code>設置.ini</code> 可直接沿用。
         </div>
       </div>
 
@@ -432,6 +477,52 @@
       });
     });
 
+    // 介面預覽幻燈片：五大分頁 × 深/淺主題，自動播放 + 手動切換
+    const slideshowPages = [
+      { name: '基本設定', dark: 'docs/screenshots/basic-dark.png', light: 'docs/screenshots/basic-light.png' },
+      { name: '槍械管理', dark: 'docs/screenshots/weapon-dark.png', light: 'docs/screenshots/weapon-light.png' },
+      { name: '熱鍵設定', dark: 'docs/screenshots/hotkeys-dark.png', light: 'docs/screenshots/hotkeys-light.png' },
+      { name: '說明', dark: 'docs/screenshots/help-dark.png', light: 'docs/screenshots/help-light.png' },
+      { name: '更新', dark: 'docs/screenshots/update-dark.png', light: 'docs/screenshots/update-light.png' }
+    ];
+    let slideIndex = 0, slideTheme = 'dark', slideTimer = null;
+    const slideImg = document.getElementById('slideshow-img');
+    const slideLink = document.getElementById('slideshow-link');
+    const slideCaption = document.getElementById('slideshow-caption');
+    const slideDots = document.getElementById('slideshow-dots');
+    slideshowPages.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slideshow-dot';
+      dot.setAttribute('aria-label', '第 ' + (i + 1) + ' 頁');
+      dot.addEventListener('click', () => { showSlide(i); restartAuto(); });
+      slideDots.appendChild(dot);
+    });
+    function showSlide(i) {
+      slideIndex = (i + slideshowPages.length) % slideshowPages.length;
+      const page = slideshowPages[slideIndex];
+      const src = page[slideTheme];
+      slideImg.src = src;
+      slideImg.alt = page.name + (slideTheme === 'dark' ? '（深色）' : '（淺色）');
+      slideLink.href = src;
+      slideCaption.textContent = page.name + (slideTheme === 'dark' ? ' · 深色主題' : ' · 淺色主題');
+      slideDots.querySelectorAll('.slideshow-dot').forEach((d, j) => d.classList.toggle('active', j === slideIndex));
+    }
+    function restartAuto() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(() => showSlide(slideIndex + 1), 4000);
+    }
+    document.getElementById('slideshow-prev').addEventListener('click', () => { showSlide(slideIndex - 1); restartAuto(); });
+    document.getElementById('slideshow-next').addEventListener('click', () => { showSlide(slideIndex + 1); restartAuto(); });
+    const themeDarkBtn = document.getElementById('theme-dark');
+    const themeLightBtn = document.getElementById('theme-light');
+    themeDarkBtn.addEventListener('click', () => { slideTheme = 'dark'; themeDarkBtn.classList.add('active'); themeLightBtn.classList.remove('active'); showSlide(slideIndex); });
+    themeLightBtn.addEventListener('click', () => { slideTheme = 'light'; themeLightBtn.classList.add('active'); themeDarkBtn.classList.remove('active'); showSlide(slideIndex); });
+    const slideshowEl = document.getElementById('slideshow');
+    slideshowEl.addEventListener('mouseenter', () => clearInterval(slideTimer));
+    slideshowEl.addEventListener('mouseleave', restartAuto);
+    showSlide(0);
+    restartAuto();
+
     fetch('version.json').then(r => r.json()).then(data => {
       document.getElementById('hero-version').textContent = data.latest_version;
       document.getElementById('version-display').textContent = data.latest_version;
@@ -443,7 +534,7 @@
         notesEl.textContent = data.release_notes;
       }
     }).catch(() => {
-      document.getElementById('version-display').textContent = 'v1.1.1';
+      document.getElementById('version-display').textContent = 'v1.2.0';
     });
   </script>
 </body>

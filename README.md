@@ -10,6 +10,50 @@
 
 ---
 
+## ✨ 功能特色
+
+- 🎨 **全新 Fluent 介面**：深色／淺色主題切換，五大分頁一目瞭然
+- 📦 **9 槽槍械預設**：獨立保存槍械壓槍力道與間隔，快速存/載
+- ⚡ **即時微調**：遊戲中用熱鍵調整力度與間隔，不必跳出視窗
+- 🎯 **準星覆蓋**：螢幕十字準星，可切換顯示與顏色
+- 🎮 **目標視窗鎖定**：只對指定遊戲生效，避免誤觸其他視窗
+- 🔄 **自動更新檢查**：啟動 5 秒後自動檢查，有新版只在頁內顯示、不彈窗
+- ⌨️ **完整鍵盤導航**：支援小鍵盤與短鍵盤兩種排佈
+
+---
+
+## 📸 介面預覽
+
+### 深色主題
+
+| 基本設定 | 槍械管理 |
+| --- | --- |
+| [![基本設定（深色）](docs/screenshots/basic-dark.png)](docs/screenshots/basic-dark.png) | [![槍械管理（深色）](docs/screenshots/weapon-dark.png)](docs/screenshots/weapon-dark.png) |
+
+| 熱鍵設定 | 說明 |
+| --- | --- |
+| [![熱鍵設定（深色）](docs/screenshots/hotkeys-dark.png)](docs/screenshots/hotkeys-dark.png) | [![說明（深色）](docs/screenshots/help-dark.png)](docs/screenshots/help-dark.png) |
+
+| 更新 | 主視窗（深色） |
+| --- | --- |
+| [![更新（深色）](docs/screenshots/update-dark.png)](docs/screenshots/update-dark.png) | [![主視窗（深色）](docs/screenshots/basic-dark-680.png)](docs/screenshots/basic-dark-680.png) |
+
+### 淺色主題對照
+
+| 基本設定 | 槍械管理 |
+| --- | --- |
+| [![基本設定（淺色）](docs/screenshots/basic-light.png)](docs/screenshots/basic-light.png) | [![槍械管理（淺色）](docs/screenshots/weapon-light.png)](docs/screenshots/weapon-light.png) |
+
+| 熱鍵設定 | 說明 |
+| --- | --- |
+| [![熱鍵設定（淺色）](docs/screenshots/hotkeys-light.png)](docs/screenshots/hotkeys-light.png) | [![說明（淺色）](docs/screenshots/help-light.png)](docs/screenshots/help-light.png) |
+
+| 更新 | 主視窗（淺色） |
+| --- | --- |
+| [![更新（淺色）](docs/screenshots/update-light.png)](docs/screenshots/update-light.png) | [![主視窗（淺色）](docs/screenshots/basic-light-680.png)](docs/screenshots/basic-light-680.png) |
+
+---
+
 ## 📥 下載
 
 請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載最新版：`SidAllFPS-v1.2.0.zip`。
