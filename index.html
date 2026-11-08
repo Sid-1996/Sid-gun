@@ -148,14 +148,16 @@
     .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
     .feature-card p { color: var(--text-secondary); font-size: 0.92rem; }
 
-    .download-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .download-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .card-item {
       background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
-      padding: 1.5rem 1rem; border-radius: 12px; text-align: center; display: block;
+      padding: 1.5rem 1rem; border-radius: 12px; text-align: center;
+      display: flex; flex-direction: column;
     }
     .card-item h3 { color: #fff; margin: 0; font-size: 1rem; margin-bottom: 0.5rem; }
     .card-item .badge { font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; }
     .card-item p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.8rem; }
+    .card-item .sid-btn { margin-top: auto; }
     .sid-btn {
       display: block; width: 100%; padding: 0.6rem 0; text-decoration: none; font-weight: bold;
       border-radius: 4px; font-size: 0.85rem; text-align: center;
