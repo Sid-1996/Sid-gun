@@ -1,7 +1,7 @@
 {
-  "latest_version": "v1.1.1",
-  "release_notes": "• 官方網站遷移至 sid-1996.github.io/sid-automation-lab\n• 購買頁面網址同步更新\n• 新增：硬體序號查詢工具（F0F0F0 簡潔介面）\n• 清除：舊版編譯殘骸、過時文件、舊版授權器\n• 試用版 GUI 字型加大（s11/s13）、準心文字吃字修正\n• 試用版：花完次數後引導至購買頁面並複製 HWID\n• version 格式統一為 v1.1.1（major.minor.patch）",
-  "published_at": "2026-07-06",
+  "latest_version": "v1.2.0",
+  "release_notes": "✦ 全新 Fluent 介面：深色/淺色主題、五大分頁、完整鍵盤導航\n✦ 啟動 5 秒後自動檢查更新（10 分鐘節流，有新版只在頁內顯示、不彈窗）\n✦ 工具已從 AHK 轉移至 C#（WPF）重寫，設定檔格式不變，舊 AHK 產生的設置.ini 可直接沿用",
+  "published_at": "2026-11-08",
   "download_url": "https://github.com/Sid-1996/Sid-gun/releases/latest",
   "min_version_required": false
 }
