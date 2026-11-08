@@ -56,7 +56,7 @@
 
 ## 📥 下載
 
-請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載最新版：`SidAllFPS-v1.2.0.zip`。
+請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載：正式版 `SidAllFPS-v1.2.0.zip`；試用版（14 天免費試用，限 3 組槍械預設）請至 [v1.2.0-trial](https://github.com/Sid-1996/Sid-gun/releases/tag/v1.2.0-trial) 下載 `SidAllFPS.Trial-v1.2.0.zip`。
 
 ## 💻 系統需求
 
@@ -67,7 +67,7 @@
 ## 🔧 安裝
 
 1. 將 `SidAllFPS-v1.2.0.zip` 解壓縮到固定資料夾（例如 `C:\SidAllFPS`）。
-2. 執行 `SidAllFPS.Wpf.exe`。
+2. 執行 `SidAllFPS.Wpf.exe`（試用版為 `SidAllFPS.Trial.exe`）。
 3. 設定檔會自動建立在同資料夾下的 `config\設置.ini`；舊版 AHK 產生的 `設置.ini` 可直接沿用。
 
 ## 🔄 更新
