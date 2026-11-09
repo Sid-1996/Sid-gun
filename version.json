@@ -1,7 +1,7 @@
 {
-  "latest_version": "v1.2.0",
-  "release_notes": "✦ 全新 Fluent 介面：深色/淺色主題、五大分頁、完整鍵盤導航\n✦ 啟動 5 秒後自動檢查更新（10 分鐘節流，有新版只在頁內顯示、不彈窗）\n✦ 工具已從 AHK 轉移至 C#（WPF）重寫，設定檔格式不變，舊 AHK 產生的設置.ini 可直接沿用",
-  "published_at": "2026-11-08",
+  "latest_version": "v1.2.1",
+  "release_notes": "✦ 修正：面板隱藏或遊戲佔用前景時，F12 可能無法關閉工具（結束確認改用原生視窗，退出不再被對話框卡住）\n✦ 目標視窗關閉或遺失後也能正常結束程式\n✦ 新增系統匣圖示：左鍵喚回面板、右鍵選單「顯示面板 / 結束」，隨時都能關閉程式\n✦ 熱鍵、壓槍、準心與既有設定格式均未變更",
+  "published_at": "2026-11-10",
   "download_url": "https://github.com/Sid-1996/Sid-gun/releases/latest",
   "min_version_required": false
 }

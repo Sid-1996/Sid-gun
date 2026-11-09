@@ -1,10 +1,10 @@
 ![Downloads](https://img.shields.io/github/downloads/Sid-1996/Sid-gun/total?color=orange)
-![Version](https://img.shields.io/badge/version-v1.2.0-blue)
+![Version](https://img.shields.io/badge/version-v1.2.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 # Sid All FPS Game — 壓槍腳本
 
-適用於 FPS 遊戲的壓槍輔助工具。v1.2.0 為 C#（WPF）重寫版，具有全新 Fluent 介面（深色／淺色主題、五大分頁），操作體驗與上一版一致，舊有設定可直接沿用。
+適用於 FPS 遊戲的壓槍輔助工具。v1.2.1 為 C#（WPF）重寫版，具有全新 Fluent 介面（深色／淺色主題、五大分頁），修正 F12 可能無法關閉工具的問題並新增系統匣圖示，舊有設定可直接沿用。
 
 > ⚠️ 此版本庫僅用於 **發佈 Release（執行檔下載）**。原始碼存放於私人版本庫。
 
@@ -17,6 +17,7 @@
 - ⚡ **即時微調**：遊戲中用熱鍵調整力度與間隔，不必跳出視窗
 - 🎯 **準星覆蓋**：螢幕十字準星，可切換顯示與顏色
 - 🎮 **目標視窗鎖定**：只對指定遊戲生效，避免誤觸其他視窗
+- 🖱️ **系統匣圖示**：面板隱藏後仍可隨時喚回面板或結束程式
 - 🔄 **自動更新檢查**：啟動 5 秒後自動檢查，有新版只在頁內顯示、不彈窗
 - ⌨️ **完整鍵盤導航**：支援小鍵盤與短鍵盤兩種排佈
 
@@ -56,7 +57,7 @@
 
 ## 📥 下載
 
-請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載：正式版 `SidAllFPS-v1.2.0.zip`；試用版（14 天免費試用，限 3 組槍械預設）請至 [v1.2.1-trial](https://github.com/Sid-1996/Sid-gun/releases/tag/v1.2.1-trial) 下載 `SidAllFPS.Trial-v1.2.1.zip`。
+請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載：正式版 `SidAllFPS-v1.2.1.zip`；試用版（14 天免費試用，限 3 組槍械預設）請至 [v1.2.1-trial](https://github.com/Sid-1996/Sid-gun/releases/tag/v1.2.1-trial) 下載 `SidAllFPS.Trial-v1.2.1.zip`。
 
 ## 💻 系統需求
 
@@ -66,7 +67,7 @@
 
 ## 🔧 安裝
 
-1. 將 `SidAllFPS-v1.2.0.zip` 解壓縮到固定資料夾（例如 `C:\SidAllFPS`）。
+1. 將 `SidAllFPS-v1.2.1.zip` 解壓縮到固定資料夾（例如 `C:\SidAllFPS`）。
 2. 執行 `SidAllFPS.Wpf.exe`（試用版為 `SidAllFPS.Trial.exe`）。
 3. 設定檔會自動建立在同資料夾下的 `config\設置.ini`；舊版 AHK 產生的 `設置.ini` 可直接沿用。
 
