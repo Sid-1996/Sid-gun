@@ -56,7 +56,7 @@
 
 ## 📥 下載
 
-請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載：正式版 `SidAllFPS-v1.2.0.zip`；試用版（14 天免費試用，限 3 組槍械預設）請至 [v1.2.0-trial](https://github.com/Sid-1996/Sid-gun/releases/tag/v1.2.0-trial) 下載 `SidAllFPS.Trial-v1.2.0.zip`。
+請至 [Releases 頁面](https://github.com/Sid-1996/Sid-gun/releases) 下載：正式版 `SidAllFPS-v1.2.0.zip`；試用版（14 天免費試用，限 3 組槍械預設）請至 [v1.2.1-trial](https://github.com/Sid-1996/Sid-gun/releases/tag/v1.2.1-trial) 下載 `SidAllFPS.Trial-v1.2.1.zip`。
 
 ## 💻 系統需求
 
